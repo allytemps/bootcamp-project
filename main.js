@@ -63,7 +63,7 @@ function randomiseQuestions(numQuestions){
 }
 
 question = questionAmount();
-randomNumArray = randomiseQuestions(numQuestions);
+randomNumArray = randomiseQuestions(question);
 console.log(randomNumArray);
 choices = displayQandA(questions, answers,randomNumArray, rounds);
 player = checkResponses(randomNumArray,choices,correctAnsArray);
