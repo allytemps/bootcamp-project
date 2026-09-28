@@ -1,9 +1,9 @@
 const prompt = require("readline-sync");
 
 // display questions and get input 
-
-function displayQandA(){
-
+//Murray
+function displayQandA(questions, answers){
+    let choice = Array();
     for(let i = 0; i<15; i++){
         console.log("Question " + i + ": " +  questions[i]);
 
@@ -15,6 +15,9 @@ function displayQandA(){
         choice[i] = ans;
 
     }
+    return choice;
 };
 
-choices = displayQandA();
+choices = displayQandA(questions, answers);
+
+
