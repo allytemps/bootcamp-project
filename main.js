@@ -9,7 +9,7 @@ function randomiseQuestions(numQuestions){
     for(let i = 0; i < numQuestions; i++){
         let randomValue = 0;
         do{
-           randomValue = Math.round(Math.random() * numQuestions) ;
+           randomValue = Math.round(Math.random() * (numQuestions -1)) ;
         }while(positionArray.includes(randomValue));
         positionArray[i] = randomValue;
     }
