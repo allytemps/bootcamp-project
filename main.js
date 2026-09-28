@@ -16,6 +16,5 @@ function randomiseQuestions(numQuestions){
     return positionArray;
 }
 
-let numQuestions = 15
 randomNumArray = randomiseQuestions(numQuestions);
 console.log(randomNumArray);
