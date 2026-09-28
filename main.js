@@ -4,3 +4,18 @@ let answers = [["Mars", "Earth", "Jupiter"], ["Microsoft", "Google", "Samsung"],
 let question = ["What is the largest planet in our solar system?", "What software company is headquartered in Redmond, Washington?", "How many dots appear on a pair of dice?", "How many minutes are in a full week?", "What is the primary ingredient in the Italian dessert tiramisu?", "Which country is credited with inventing ice cream?", "Who is the director of the critically acclaimed film “Parasite”?", "Who was the worlds highest-paid athlete in 2023?", "Which sci-fi series features a police box called the TARDIS?", "What is the main ingredient in guacamole?", "Which country is famous for its pasta dishes such as spaghetti and lasagna?", "What is the primary ingredient in hummus?", "Which vegetable is known for its association with Popeye the Sailor?", "What is the national dish of Japan?", "What type of food is brie?", "Which nut is used to make marzipan?"]
 
 
+function randomiseQuestions(numQuestions){
+    let positionArray = [] * numQuestions;
+    for(let i = 0; i < numQuestions; i++){
+        let randomValue = 0;
+        do{
+           randomValue = Math.round(Math.random() * numQuestions) ;
+        }while(positionArray.indexOf(randomValue) !== -1);
+        positionArray[i] = randomValue;
+    }
+    return positionArray;
+}
+
+let numQuestions = 15
+randomNumArray = randomiseQuestions(numQuestions);
+console.log(randomNumArray);
