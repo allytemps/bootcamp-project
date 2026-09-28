@@ -9,4 +9,5 @@ function randomiseQuestions(numQuestions, questionArray){
         }while(!(positionArray.indexOf(radomValue)))
         positionArray[i] = randomValue
     }
+    return positionArray
 }
