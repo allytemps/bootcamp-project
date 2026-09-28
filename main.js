@@ -48,12 +48,12 @@ function checkResponses(randomNumArray,choices,correctAnsArray,questionNum,answe
 };
 
 
-function randomiseQuestions(numQuestions){
-    let positionArray = [];// * numQuestions;
-    for(let i = 0; i < numQuestions; i++){
+function randomiseQuestions(){
+    let positionArray = [];
+    for(let i = 0; i < 15; i++){
         let randomValue = 0;
         do{
-           randomValue = Math.round(Math.random() * (numQuestions -1)) ;
+           randomValue = Math.round(Math.random() * 15) ;
         }while(positionArray.includes(randomValue));
         positionArray[i] = randomValue;
     }
@@ -61,7 +61,7 @@ function randomiseQuestions(numQuestions){
 }
 player.name = prompt.question("Enter Username Here: ")
 let questionNum = questionAmount();
-randomNumArray = randomiseQuestions(questionNum);
+randomNumArray = randomiseQuestions();
 choices = displayQandA(question, answers,randomNumArray, questionNum);
 score = checkResponses(randomNumArray,choices,correctAnswers,questionNum,answers);
 player.score = score};
