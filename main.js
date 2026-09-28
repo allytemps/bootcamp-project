@@ -62,3 +62,12 @@ randomNumArray = randomiseQuestions(numQuestions);
 console.log(randomNumArray);
 choices = displayQandA(questions, answers,randomNumArray, rounds);
 player = checkResponses(randomNumArray,choices,correctAnsArray);
+let answers = [["Mars", "Earth", "Jupiter"], ["Microsoft", "Google", "Samsung"], ["42", "64", "48"], ["12,180", "10,080", "11,080"], ["Cream Cheese", "Mascarpone Cheese", "Blue Cheese"], ["India", "China", "Italy"], ["Bong Joon-ho", "Christopher Nolan", "Tim Burton"], ["Lionel Messi", "Zlatan Ibrahimovic", "Christiano Ronaldo"], ["Doctor Who", "Star Trek", "Stranger Things"], ["Salt", "Lime Juice", "Avocados"], ["Spain", "Italy", "France"], ["Chickpeas", "Garlic", "Tahini"], ["Carrots", "Rocket", "Spinach"], ["Noodles", "Sushi", "Eggs"], ["Cheese", "Butter", "Olive Oil"], ["Peanuts", "Hazelnut", "Almonds"]]
+function questionAmount(){
+do{
+    numOfQuestions = Number(prompt.question("Please enter 5, 10 or 15: "));
+    }while(numOfQuestions != 5 && numOfQuestions != 10 && numOfQuestions != 15)
+    return numOfQuestions};
+
+    question = questionAmount()
+    
