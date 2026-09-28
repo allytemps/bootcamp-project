@@ -5,12 +5,12 @@ let question = ["What is the largest planet in our solar system?", "What softwar
 
 
 function randomiseQuestions(numQuestions){
-    let positionArray = [] * numQuestions;
+    let positionArray = [];// * numQuestions;
     for(let i = 0; i < numQuestions; i++){
         let randomValue = 0;
         do{
            randomValue = Math.round(Math.random() * numQuestions) ;
-        }while(positionArray.indexOf(randomValue) !== -1);
+        }while(positionArray.includes(randomValue));
         positionArray[i] = randomValue;
     }
     return positionArray;
