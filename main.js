@@ -57,7 +57,6 @@ function randomiseQuestions(numQuestions){
     return positionArray;
 }
 
-let numQuestions = 15
 randomNumArray = randomiseQuestions(numQuestions);
 console.log(randomNumArray);
 choices = displayQandA(questions, answers,randomNumArray, rounds);
