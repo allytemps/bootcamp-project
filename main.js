@@ -81,13 +81,14 @@ function insertSort(arr){
 let questionNum = questionAmount();
 //Conditional loop to allow user/s to play the game with others or multiple times
 for(i = 0; i < numberOfRounds; i++){
-    let playerName = prompt.question("Enter Username Here: ")
+    let playerName = prompt.question("PLayer " + (i+1) + " Enter Username Here: ")
     //Call all functions to main code and display output
     
     randomNumArray = randomiseQuestions();
     choices = displayQandA(question, answers,randomNumArray, questionNum);
     score = checkResponses(randomNumArray,choices,correctAnswers,questionNum,answers);
-    updateLeaderboard(playerName, score)};
+    updateLeaderboard(playerName, score);
+    console.log("\n\n\n\n");};
 
 leaderboard = insertSort(leaderboard);
 
