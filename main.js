@@ -64,8 +64,24 @@ function randomiseQuestions(){
 function updateLeaderboard(name, playerScore){
     leaderboard.push({Name: name, Score: playerScore});
 };
+
+function insertSort(arr){
+    for (let i = 0; i < arr.length; i += 1) {
+    const temp = arr[i];
+    let j = i - 1;
+    while (j >= 0 && arr[j].score > temp.score) {
+      arr[j + 1] = arr[j];
+      j -= 1;
+    }
+    arr[j + 1] = temp;
+  }
+  return arr.reverse();
+    }
+
+
 //Conditional loop to allow user/s to play the game with others or multiple times
 for(i = 0; i < numberOfRounds; i++){
+<<<<<<< HEAD
 let playerName = prompt.question("Enter Username Here: ")
 //Call all functions to main code and display output
 let questionNum = questionAmount();
@@ -73,3 +89,14 @@ randomNumArray = randomiseQuestions();
 choices = displayQandA(question, answers,randomNumArray, questionNum);
 score = checkResponses(randomNumArray,choices,correctAnswers,questionNum,answers);
 updateLeaderboard(playerName, score)};
+=======
+    let playerName = prompt.question("Enter Username Here: ")
+    //Call all functions to main code and display output
+    let questionNum = questionAmount();
+    randomNumArray = randomiseQuestions();
+    choices = displayQandA(question, answers,randomNumArray, questionNum);
+    score = checkResponses(randomNumArray,choices,correctAnswers,questionNum,answers);
+    updateLeaderboard(playerName, score)};
+leaderboard = insertSort(leaderboard);
+console.log(leaderboard)
+>>>>>>> af1ee8da67c9b98cafaea058a939c2e1280557c4
