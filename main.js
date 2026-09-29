@@ -17,13 +17,13 @@ do{
     return numOfQuestions};
 
 //Function to display the question and question number alongside the answers with their corresponding number depending on placement in the array
-function displayQandA(questions, answers,randomNumArray,rounds, randomAnsArray){
+function displayQandA(questions, answers,randomNumArray,rounds){
     let choice = Array();
     for(let i = 0; i<rounds; i++){
         console.log("Question " + (i + 1) + ": " +  questions[randomNumArray[i]]);
 
         for(let j= 0; j<3; j++){
-            console.log((j + 1) + ". " + answers[randomNumArray[i]][randomAnsArray[i][j]]);
+            console.log((j + 1) + ". " + answers[randomNumArray[i]][j]);
 
         }
         //Input validation to ensure they enter the correct corresponding number to answer
@@ -60,25 +60,10 @@ function randomiseQuestions(){
     return positionArray;
 }
 
-//Function that will randomise the order of the answers so that the user can't just memorise where they are
-function randomiseAnswers(){
-    let ansPositionArray = []
-    for(let i = 0; i < 15; i++){
-        ansPositionArray[i] = [];
-        for(let j = 0; j < 3; j++){
-            let randVal = 0;
-            do{
-                randVal = Math.round(Math.random() * 2);
-            }while(ansPositionArray[i].includes(randVal));
-            ansPositionArray[i][j] = randVal;
-        }
-    }
-    return ansPositionArray;
-}
 
 //Function to update the leaderboard with the players object to store multiple names and scores
-function updateLeaderboard(name, playerScore){
-    leaderboard.push({Name: name, Score: playerScore});
+function updateLeaderboard(name, playerScore,playerGrade){
+    leaderboard.push({Name: name, Score: playerScore, Grade: playerGrade});
 };
 // order leaderboard high to low
 function insertSort(arr){
@@ -94,24 +79,56 @@ function insertSort(arr){
   return arr.reverse();
     }
 
+function grade(player, numQuestions){
+    
+    let percent = Number((player.Score /numQuestions)*100);
+    let Grade = undefined;
+    switch(true){
+        case percent >= 0 && percent < 40:
+            Grade = "F";
+            break;
+        case percent >= 40 && percent <50:
+            Grade = "D";
+            break;
+        case percent >= 50 && percent <60:
+            Grade = "C";
+            break;
+        case percent >= 60 && percent <70:
+            Grade = "B";
+            break;
+        case percent >= 70 && percent <=100:
+            Grade = "A";
+            break;
+        default:
+            console.log("ERROR");
+    } 
+    return Grade;
+}
+
+function setLeaderboard(name, playerScore,playerGrade){
+    leaderboard[i] = ({Name: name, Score: playerScore, Grade: playerGrade});
+}
+
+
 let questionNum = questionAmount();
 //Conditional loop to allow user/s to play the game with others or multiple times
 for(i = 0; i < numberOfRounds; i++){
     let playerName = prompt.question("PLayer " + (i+1) + " Enter Username Here: ")
     //Call all functions to main code and display output
-    randomAnsArray = randomiseAnswers();
     randomNumArray = randomiseQuestions();
-    choices = displayQandA(question, answers,randomNumArray, questionNum, randomAnsArray);
+    choices = displayQandA(question, answers,randomNumArray, questionNum);
     score = checkResponses(randomNumArray,choices,correctAnswers,questionNum,answers);
-    updateLeaderboard(playerName, score);
+    updateLeaderboard(playerName, score, undefined);
+    gradeVar = grade(leaderboard[i],questionNum);
+    setLeaderboard(playerName, score, gradeVar)
     console.log("\n\n\n\n");};
 
 leaderboard = insertSort(leaderboard);
 
-console.log("\n\n\n\n")
-console.log( "===SCORE BOARD===");
+console.log("\n\n\n\n");
+console.log( "============SCORE BOARD============");
 
 for(let i = 0; i< leaderboard.length; i++){
-        console.log((i + 1) + ". " + leaderboard[i].Name + " got " + leaderboard[i].Score, "questions right!");
+        console.log((i + 1) + ". " + leaderboard[i].Name + " got " + leaderboard[i].Score, "questions right! That is a " + leaderboard[i].Grade );
     }
 
