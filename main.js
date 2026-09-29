@@ -7,7 +7,7 @@ let question = ["What is the largest planet in our solar system?", "What softwar
 let numberOfRounds = null;
 let leaderboard = [];
 
-numberOfRounds = Number(prompt.question("How many people would you like to play this quiz?"));
+numberOfRounds = Number(prompt.question("How many people would you like to play this quiz? "));
 
 //Function using a do while loop to ask user how many questions they would like in their game and return that variable
 function questionAmount(){
@@ -64,7 +64,7 @@ function randomiseQuestions(){
 function updateLeaderboard(name, playerScore){
     leaderboard.push({Name: name, Score: playerScore});
 };
-
+// order leaderboard high to low
 function insertSort(arr){
     for (let i = 0; i < arr.length; i += 1) {
     const temp = arr[i];
@@ -88,5 +88,13 @@ for(i = 0; i < numberOfRounds; i++){
     choices = displayQandA(question, answers,randomNumArray, questionNum);
     score = checkResponses(randomNumArray,choices,correctAnswers,questionNum,answers);
     updateLeaderboard(playerName, score)};
+
 leaderboard = insertSort(leaderboard);
-console.log(leaderboard)
+
+
+console.log( "===SCORE BOARD===");
+
+for(let i = 0; i< leaderboard.length; i++){
+        console.log((i + 1) + " " + leaderboard[i].Name + " got " + leaderboard[i].Score, "questions right!");
+    }
+
