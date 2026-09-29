@@ -95,6 +95,6 @@ leaderboard = insertSort(leaderboard);
 console.log( "===SCORE BOARD===");
 
 for(let i = 0; i< leaderboard.length; i++){
-        console.log((i + 1) + " " + leaderboard[i].Name + " got " + leaderboard[i].Score, "questions right!");
+        console.log((i + 1), "place: " + " " + leaderboard[i].Name + " got " + leaderboard[i].Score, "questions right!");
     }
 
