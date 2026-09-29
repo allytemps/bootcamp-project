@@ -64,7 +64,7 @@ function randomiseQuestions(){
 function updateLeaderboard(name, playerScore){
     leaderboard.push({Name: name, Score: playerScore});
 };
-
+// order leaderboard high to low
 function insertSort(arr){
     for (let i = 0; i < arr.length; i += 1) {
     const temp = arr[i];
