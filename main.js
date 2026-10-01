@@ -7,7 +7,9 @@ let question = ["What is the largest planet in our solar system?", "What softwar
 let numberOfRounds = null;
 let leaderboard = [];
 //Asks the users to select how manuy questions they would like
-numberOfRounds = Number(prompt.question("How many people would you like to play this quiz? "));
+do{
+    numberOfRounds = Number(prompt.question("How many people would you like to play this quiz? "));
+}while(isNaN(numberOfRounds));
 //Function using a do while loop to ask user how many questions they would like in their game and return that variable
 function questionAmount(){
 do{
@@ -28,7 +30,7 @@ function displayQandA(questions, answers,randomNumArray,rounds){
         //Input validation to ensure they enter the correct corresponding number to answer
         do{
             ans = Number(prompt.question("Enter Choice Here: "));
-        }while(ans < 1 || ans > 3)
+        }while(ans < 1 || ans > 3 || isNaN(ans))
         choice[i] = (ans -1);
     }
     return choice;
