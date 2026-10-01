@@ -119,7 +119,7 @@ for(i = 0; i < numberOfRounds; i++){
     console.log("\n\n\n\n");};
 
 leaderboard = insertSort(leaderboard);
-// /n used to cretae some space between the code to improve the readability
+// /n used to create some space between the code to improve the readability
 console.log("\n\n\n\n");
 //A prompt to show the score board/ see how they've done overall and against others
 console.log( "============SCORE BOARD============");
