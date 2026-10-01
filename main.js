@@ -124,5 +124,5 @@ console.log("\n\n\n\n");
 //A prompt to show the score board/ see how they've done overall and against others
 console.log( "============SCORE BOARD============");
 for(let i = 0; i< leaderboard.length; i++){
-        console.log((i + 1), "place: " + " " + leaderboard[i].Name + " got " + leaderboard[i].Score, "questions right!");
+        console.log((i + 1), "place: " + leaderboard[i].Name + " got " + leaderboard[i].Score, "questions right! Grade: " + gradeVar);
     }
